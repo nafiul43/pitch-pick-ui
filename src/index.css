@@ -71,6 +71,10 @@
   --accent-bg: rgba(132, 204, 22, 0.12);
   --accent-border: rgba(132, 204, 22, 0.4);
 
+  /* Link tokens */
+  --link: var(--primary-color);
+  --link-hover: color-mix(in oklch, var(--primary-color), black 12%);
+
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
@@ -223,6 +227,8 @@ code {
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -296,5 +302,14 @@ code {
   }
   html {
     @apply font-sans;
+  }
+  a:not([data-slot="button"]) {
+    color: var(--link);
+    text-decoration: none;
+    text-underline-offset: 4px;
+    transition: color 0.15s;
+  }
+  a:not([data-slot="button"]):hover {
+    color: var(--link-hover);
   }
 }
